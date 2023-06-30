@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+}
+
+.content div {
+  width: 40%;
+  /* border: 1px solid red; */
+}
+
+.alert {
+  color: red;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+}

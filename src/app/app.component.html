@@ -1,0 +1,26 @@
+<h1>I/O Extended'23@Taichung</h1>
+<h2>Rethinking reactivity with Angular Signals</h2>
+<hr />
+<div class="content">
+  <div>
+    <p><input #name value="Name" /></p>
+    <p><textarea #backstory>BackStory</textarea></p>
+    <div class="detail" style="width: 100%">
+      <p>You have 20 character point(s) left to use</p>
+      <p class="alert">All character points have been assigned!</p>
+      <label>Angularness</label>
+      <app-metric-editor></app-metric-editor>
+      <label>Nerdiness:</label>
+      <app-metric-editor></app-metric-editor>
+      <label>Zonelessness:</label>
+      <app-metric-editor></app-metric-editor>
+    </div>
+  </div>
+  <div class="detail">
+    <p><strong>Name:</strong> People Name</p>
+    <p><strong>BackStory:</strong> This is my backstory</p>
+    <p>Angularness: <span *ngFor="let i of [1, 1, 1, 1, 1, 1]">❤️</span></p>
+    <p>Nerdiness: <span *ngFor="let i of [1, 1, 1, 1, 1, 1]">❤️</span></p>
+    <p>Zonelessness: <span *ngFor="let i of [1, 1, 1, 1, 1, 1]">❤️</span></p>
+  </div>
+</div>
