@@ -3,24 +3,45 @@
 <hr />
 <div class="content">
   <div>
-    <p><input #name value="Name" /></p>
-    <p><textarea #backstory>BackStory</textarea></p>
+    <p>
+      <input #name [value]="hero.name()" (input)="hero.name.set(name.value)" />
+    </p>
+    <p>
+      <textarea
+        #backstory
+        [value]="hero.backstory()"
+        (input)="hero.backstory.set(backstory.value)"
+      ></textarea>
+    </p>
     <div class="detail" style="width: 100%">
-      <p>You have 20 character point(s) left to use</p>
-      <p class="alert">All character points have been assigned!</p>
+      <p *ngIf="remainPoints() > 0">
+        You have {{ remainPoints() }} character point(s) left to use
+      </p>
+      <p class="alert" *ngIf="remainPoints() <= 0">
+        All character points have been assigned!
+      </p>
       <label>Angularness</label>
-      <app-metric-editor></app-metric-editor>
+      <app-metric-editor
+        [metric]="hero.metrics.angular"
+        [upDisable]="upDisable()"
+      ></app-metric-editor>
       <label>Nerdiness:</label>
-      <app-metric-editor></app-metric-editor>
+      <app-metric-editor
+        [metric]="hero.metrics.nerdness"
+        [upDisable]="upDisable()"
+      ></app-metric-editor>
       <label>Zonelessness:</label>
-      <app-metric-editor></app-metric-editor>
+      <app-metric-editor
+        [metric]="hero.metrics.zonelessness"
+        [upDisable]="upDisable()"
+      ></app-metric-editor>
     </div>
   </div>
   <div class="detail">
-    <p><strong>Name:</strong> People Name</p>
-    <p><strong>BackStory:</strong> This is my backstory</p>
-    <p>Angularness: <span *ngFor="let i of [1, 1, 1, 1, 1, 1]">❤️</span></p>
-    <p>Nerdiness: <span *ngFor="let i of [1, 1, 1, 1, 1, 1]">❤️</span></p>
-    <p>Zonelessness: <span *ngFor="let i of [1, 1, 1, 1, 1, 1]">❤️</span></p>
+    <p><strong>Name:</strong> {{ hero.name() }}</p>
+    <p><strong>BackStory:</strong> {{ hero.backstory() }}</p>
+    <p>Angularness: <span *ngFor="let i of angular()">❤️</span></p>
+    <p>Nerdiness: <span *ngFor="let i of nerdness()">❤️</span></p>
+    <p>Zonelessness: <span *ngFor="let i of zonelessness()">❤️</span></p>
   </div>
 </div>
